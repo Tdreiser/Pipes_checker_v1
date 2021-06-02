@@ -28,7 +28,7 @@ def addLinkIntoMONGO(collection,specialData):
 def getRecordByNameMONGO(collection,name):
     return collection.find_one({'name':name})
 
-
+#check comment
 
 
 
