@@ -9,12 +9,12 @@ db = createMongoDB()
 db.test_pipes.remove()
 Mycollection = db.test_pipes
 
-def addNameIntoBaseMONGO(collection,name):
+def addNameIntoBaseMONGO(collection, name):
     '''Функция заполнения именами труб в БД
     {name : name}'''
     collection.insert_one({'name':name})
 
-def addLinkIntoMONGO(collection,specialData):
+def addLinkIntoMONGO(collection, specialData):
     '''Функция которая кладёт ссылки в БД
     {
     name(для заполенения поля name) :
@@ -23,9 +23,9 @@ def addLinkIntoMONGO(collection,specialData):
     for name in specialData:
         for directory in specialData[name]:
             link = specialData[name][directory]
-            collection.update({'name':name},{'$set':{directory:link}})
+            collection.update({'name':name}, {'$set':{directory:link}})
 
-def getRecordByNameMONGO(collection,name):
+def getRecordByNameMONGO(collection, name):
     return collection.find_one({'name':name})
 
 #check comment

@@ -28,7 +28,7 @@ def addNameIntoBaseSQL(data_base, cursor, name):
     data_base.commit()
 
 
-def addlinkIntoSQL (specialData,cursor,data_base):
+def addlinkIntoSQL (specialData, cursor, data_base):
     ''' Функция которая кладет ссыылки в БД
     {
     name(для заполнения в строки) :
