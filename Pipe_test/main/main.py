@@ -11,6 +11,5 @@ if __name__ == '__main__':
 
     MyFirstSql.addlinkIntoSQL(service.buildSpecialData(), MyFirstSql.cursor, MyFirstSql.data_base)
     MyFirstMongo.addLinkIntoMONGO(MyFirstMongo.Mycollection, service.buildSpecialData())
-    print(MyFirstMongo.getRecordByNameMONGO(MyFirstMongo.Mycollection, '111'))
 
     helloController.app.run()

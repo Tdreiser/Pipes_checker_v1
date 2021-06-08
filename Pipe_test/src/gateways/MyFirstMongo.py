@@ -1,6 +1,5 @@
 import pymongo
 
-
 def createMongoDB():
 
     client = pymongo.MongoClient('mongodb://localhost:27017')
@@ -32,7 +31,14 @@ def addLinkIntoMONGO(collection, specialData):
 def getRecordByNameMONGO(collection, name):
     return collection.find_one({'name': name})
 
+def getLinks(name):
+    links = ''
+    dicr = getRecordByNameMONGO(Mycollection, name)
 
+    for key in dicr.keys():
+        if key != 'name' and key != '_id':
+            links += str(key) + ' : ' + dicr[key] + ' ' * 10
+    return links
 
 
 
