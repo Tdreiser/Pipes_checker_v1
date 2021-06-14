@@ -10,6 +10,6 @@ def hello_world():
     return 'Hello World!'
 
 
-@app.route('/names/' + pipe_name)
+@app.route('/names/%s' % pipe_name)
 def getRecordByNamer():
     return getLinks(pipe_name)

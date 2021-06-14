@@ -1,2 +1,3 @@
-/venv/
-/Pipe_test/Others/
+venv/
+Pipe_test/Others/
+.idea/

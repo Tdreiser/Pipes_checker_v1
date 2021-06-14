@@ -1,5 +1,7 @@
 import sqlite3
-data_base = sqlite3.connect(r'C:/code/Pipe_test/Others/sql_datatbase/sql_db.db')  # путь указывается явно
+from Pipe_test.src.services.settingsParser import sqlDB
+
+data_base = sqlite3.connect(sqlDB)
 cursor = data_base.cursor()
 
 
