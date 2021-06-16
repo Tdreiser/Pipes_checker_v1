@@ -36,7 +36,7 @@ def getRecordByNameMONGO(collection, name):
 
 def getLinks(name):
     '''Возвращает все ссылки связанные с именем файла'''
-    # note : есть ли смысл переделать в декоратор для getRecord - семейства функций?
+
     links = ''
     dicr = getRecordByNameMONGO(myCollection, name)
 
@@ -44,6 +44,14 @@ def getLinks(name):
         if key != 'name' and key != '_id':
             links += str(key) + ' : ' + dicr[key] + ' ' * 10
     return links
+
+def getLinksInDict(name):
+    '''Возвращает все ссылки связанные с именем файла в виде словаря'''
+    dicr = getRecordByNameMONGO(myCollection, name)
+    del dicr['_id']
+    return dicr
+
+
 
 
 
