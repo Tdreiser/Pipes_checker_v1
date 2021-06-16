@@ -1,15 +1,15 @@
-from flask import Flask
-from Pipe_test.src.gateways.MyFirstMongo import getLinks
+from flask import Flask, render_template
+from Pipe_test.src.gateways.MyFirstMongo import getLinks , getLinksInDict
+from Pipe_test.src.services.settingsParser import templateFolder
+pipe_name = '1288619'
 
-pipe_name = '111'
-
-app = Flask(__name__)
+app = Flask(__name__, template_folder=templateFolder)
 
 @app.route('/hello')
 def hello_world():
-    return 'Hello World!'
+    return 'helloworld'
 
 
 @app.route('/names/%s' % pipe_name)
 def getRecordByNamer():
-    return getLinks(pipe_name)
+    return render_template('Template.html',**getLinksInDict(pipe_name))

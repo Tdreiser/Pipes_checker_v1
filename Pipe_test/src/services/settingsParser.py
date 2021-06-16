@@ -1,6 +1,6 @@
 import configparser
 settings = configparser.ConfigParser()
-settings.read('c:\code\settings.ini')
+settings.read('C:\code\Pipes_checker_v1\settings.ini')
 workDir = settings.get('service','workDir')
 mongoUrl = settings.get('mongo','mongoUrl')
-sqlDB = settings.get('sql','sqlDB')
+templateFolder = settings.get('template','templateFolder')
