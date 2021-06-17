@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PIPESSS</title>
+    <table style="border-collapse: collapse; width: 100%; height: 36px;" border="1">
+        <tbody>
+            <tr style="height: 18px;">
+                <td style="width: 16.6667%; height: 18px;">Pipe_Name</td>
+                <td style="width: 16.6667%; height: 18px;">US1</td>
+                <td style="width: 16.6667%; height: 18px;">US2</td>
+                <td style="width: 16.6667%; height: 18px;">RK1</td>
+                <td style="width: 16.6667%; height: 18px;">US4_rep</td>
+                <td style="width: 16.6667%; height: 18px;">US4_bin</td>
+            {%for record in allRecords%}
+            </tr>
+                <tr style="height: 18px;">
+                <td style="width: 16.6667%; height: 18px;">{{record['name']}}</td>
+                <td style="width: 16.6667%; height: 18px;"><a href="file:///{{узк1}}">{{record['узк1']}}</a></td>
+                <td style="width: 16.6667%; height: 18px;"><a href="file:///{{узк2}}">{{record['узк2']}}</a></td>
+                <td style="width: 16.6667%; height: 18px;"><a href="file:///{{р2}}">{{record['р2']}}</a></td>
+                <td style="width: 16.6667%; height: 18px;"><a href="file:///{{узк4_reports}}">{{record['узк4_reports']}}</a></td>
+                <td style="width: 16.6667%; height: 18px;"><a href="file:///{{узк4_bin}}">{{record['узк4_bin']}}</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</head>
+
+</html>
