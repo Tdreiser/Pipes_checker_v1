@@ -12,3 +12,4 @@ if __name__ == '__main__':
 
     MyFirstMongo.addLinkIntoMONGO(MyFirstMongo.myCollection, service.buildSpecialData(service.dirList,workDir))
     helloController.app.run()
+#new
