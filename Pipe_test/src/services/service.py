@@ -1,18 +1,19 @@
 import os
+from Pipe_test.src.services.settingsParser import workDir
 
-def directoryDict():
+dirList = os.listdir(workDir)
+
+def directoryDict(directoryList, workingDirectory):
     '''Фукнкция которая вернет словарь со ссылками на директории
     формата{key_equipment : directory_link}'''
 
-    s = 'D:/test_directories/%s'
-    Ldirs = ['US1', 'US2', 'US4', 'RK1', 'RK2']
     mydict = {}
-    for directory in Ldirs:
-        mylink = 'D:/test_directories/%s' %directory
+    for directory in directoryList:
+        mylink = workingDirectory + '%s' % directory
         mydict[directory] = mylink
     return mydict
 
-dir_dict = directoryDict()
+dir_dict = directoryDict(dirList,workDir)
 uniqueFileNameList = []
 
 def findUniqFileName(directory_dict, uniqueFileNameList):
@@ -26,20 +27,22 @@ def findUniqFileName(directory_dict, uniqueFileNameList):
 
 uniqueFileNameList = findUniqFileName(dir_dict, uniqueFileNameList)
 
-def buildSpecialData():
+def buildSpecialData(dirList,workingDirectory):
     '''Функция сбора ссылок в словарь формата
     {
     name(для заполнения в строки) :
     {equipment(для заполнения в столбцы) : link}
     }'''
+
     specialData = {}
-    link_list = []
-    for directory in os.listdir('D:/test_directories'):
-        for pipe_file_name in os.listdir('D:/test_directories/%s' %directory):
+    for directory in dirList:
+        for pipe_file_name in os.listdir(workingDirectory + '%s' % directory):
             if pipe_file_name.split('.')[0] not in specialData:
-                specialData[pipe_file_name.split('.')[0]] = {directory :'D:/test_directories/%s/%s'%(directory, pipe_file_name)}
+                specialData[pipe_file_name.split('.')[0]] = {directory: workingDirectory +\
+                                                                        '%s/%s' % (directory, pipe_file_name)}
             else:
-                specialData[pipe_file_name.split('.')[0]].update({directory :'D:/test_directories/%s/%s'%(directory, pipe_file_name)})
+                specialData[pipe_file_name.split('.')[0]].update({directory: workingDirectory +\
+                                                                             '%s/%s' % (directory, pipe_file_name)})
 
     return specialData
 
